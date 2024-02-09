@@ -2,7 +2,7 @@ import Card from "./Card";
 import '../style/GameBoard.css'
 import {useGameContext} from "../context/contextGame.tsx";
 import WinModal from "./WinModal.tsx";
-import {CardsProps} from "../context/contextGame.tsx";
+import {CardsProps} from "../utils/types.ts";
 
 export default function Board() {
     const {cards,handleCardClick ,hasWinner} = useGameContext()

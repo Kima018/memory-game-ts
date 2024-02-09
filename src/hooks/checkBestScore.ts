@@ -1,4 +1,5 @@
-import {initialGameStats,initialGameProps} from "../utils/initialGameStats.ts";
+import {initialGameStats} from "../utils/initialGameStats.ts";
+import {initialGameProps} from "../utils/types.ts";
 
 export const checkBestScore = (gameStats:initialGameProps, setGameStats):void => {
     const storedData = JSON.parse(localStorage.getItem('Data'))

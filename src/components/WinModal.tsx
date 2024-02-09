@@ -3,7 +3,7 @@ import {useGameContext} from "../context/contextGame.tsx";
 import {formatTime} from "../utils/formatTime.ts";
 
 export default function WinModal() {
-    const {gameStats, handleRestartGame} = useGameContext()
+    const {gameStats , handleRestartGame} = useGameContext()
 
 
     const score = <h3>HIGH SCORE IS {gameStats.bestScore}</h3>

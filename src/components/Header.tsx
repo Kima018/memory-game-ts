@@ -2,6 +2,7 @@ import "../style/header.css"
 import {useGameContext} from "../context/contextGame.tsx";
 import {formatTime} from "../utils/formatTime.ts"
 
+
 export default function Header() {
 
     const {handleRestartGame,gameStats }=useGameContext()

@@ -1,4 +1,4 @@
-type formatTimeFunction= (timeInSeconds:number)=>string
+import {formatTimeFunction} from "./types.ts";
 export const formatTime:formatTimeFunction  = (timeInSeconds)=> {
     const minutes = Math.floor(timeInSeconds / 60);
     const remainingSeconds = timeInSeconds % 60;

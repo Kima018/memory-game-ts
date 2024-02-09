@@ -1,7 +1,8 @@
 import '../style/card.css'
 import Logo from '../assets/logo1.png'
 import {useGameContext} from "../context/contextGame.tsx";
-import {checkIsMatched,checkIsPicked} from "../hooks/checkIsPicked.ts";
+import {checkIsMatched,checkIsPicked} from "../utils/checkIsPicked.ts";
+
 
 
 export default function Card({onClick, cardLogo, index}) {
@@ -9,10 +10,10 @@ export default function Card({onClick, cardLogo, index}) {
     const isPicked :boolean =  checkIsPicked(gameStats, index)
     const isMatched:boolean =  checkIsMatched(gameStats, index)
 
-    const handleClick = () => {
+    const handleClick = ():void => {
         !isPicked && onClick(index);
     };
-    let cardClass = 'card'
+    let cardClass:string = 'card'
     if (isPicked) {
         cardClass = 'card card-picked'
     }
@@ -23,7 +24,7 @@ export default function Card({onClick, cardLogo, index}) {
     return <div onClick={handleClick}
                 className={cardClass}>
         <div className='front-card'>
-            <img src={cardLogo} alt='logo'/>
+            <img src={Logo} alt='logo'/>
         </div>
         <div className='back-card'>
             <img src={cardLogo} alt='This is Logo!'/>

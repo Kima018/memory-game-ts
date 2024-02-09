@@ -1,30 +1,15 @@
-import React, {createContext, useContext, useEffect, useState} from "react";
-import {initialGameProps, initialGameStats} from "../utils/initialGameStats.ts";
+import {createContext, useContext, useEffect, useState} from "react";
+import {initialGameStats} from "../utils/initialGameStats.ts";
 import {data} from "../data/data.ts";
 import shuffle from "../utils/shuffle.ts";
 import {checkCardMatch} from "../hooks/checkCardMatch.ts";
 import {checkBestScore} from "../hooks/checkBestScore.ts";
 import {fetchLocalStorageData} from "../utils/fetchLocalStorageData.ts";
+import {CardsArrayProps, GameContextProps, GameProviderProps, initialGameProps} from "../utils/types.ts";
 
-type GameContextProps = {
-    gameStats: initialGameProps,
-    cards: CardsArrayProps,
-    handleCardClick: (index: number) => void,
-    handleRestartGame: () => void,
-    hasWinner: boolean
-}
-export type CardsProps = {
-    name: string,
-    img: string,
-    id: number
-}
-export type CardsArrayProps = CardsProps[]
 
 const GameContext = createContext<GameContextProps | null>(null);
 
-interface GameProviderProps {
-    children: React.ReactNode;
-}
 
 const GameContextProvider = ({children}: GameProviderProps) => {
     const [gameStats, setGameStats] = useState<initialGameProps>(initialGameStats)
@@ -91,7 +76,7 @@ const GameContextProvider = ({children}: GameProviderProps) => {
         setHasWinner(false)
     }
 
-    const contextValues:GameContextProps = {gameStats, cards, handleCardClick, hasWinner, handleRestartGame}
+    const contextValues: GameContextProps = {gameStats, cards, handleCardClick, hasWinner, handleRestartGame}
     return (<GameContext.Provider value={contextValues}> {children} </GameContext.Provider>)
 };
 
